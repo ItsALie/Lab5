@@ -20,3 +20,7 @@ tr:nth-child(odd){
     text-align: center;
     width: 100px;
 }
+iframe{
+    padding-top: 1.5em;
+    padding-left: 7.5em;
+}

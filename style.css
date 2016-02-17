@@ -92,11 +92,11 @@ div .header_interior img {float:left; margin-right:10px;}
 }
 
 .markermenu li a:visited, .markermenu li a:active{
-	color: #00014e;
+	color: #006699;
 }
 
 .markermenu li a:hover{
-	color: black;
+	color: #6699CC;
 }
 
 .markermenu li.last-child a{

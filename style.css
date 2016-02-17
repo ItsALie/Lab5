@@ -163,27 +163,5 @@ h1 {
 	margin-right:20px;
 	margin-left:20px;
 }
-table {
-    border-collapse: collapse;
-    width: 80%;
-    margin-top: 1.5em;
-    margin-left: 7em;
-    border: 1px solid black;
-}
-td {
-    border: none;
-    padding:  15px;
-}
-td:nth-child(odd){
-    padding:  10px;
-}
-tr:nth-child(odd){
-    background-color: #FFFFFF;
-}
-.altrow {
-    padding:  0px;
-    text-align: center;
-    width: 100px;
-}
 
 

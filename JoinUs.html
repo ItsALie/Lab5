@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Sample layout rendering
+		</title>
+		<link href="style.css" rel="stylesheet" type="text/css"/>
+	</head>
+  
+  <body>
+    <!-- header -->
+    <div class="header">
+      <div class="header_interior">
+        <img src="images/logo.gif" alt="Logo" width="44" height="44" /> 
+        <h1 class="title">CST Web Creations
+        </h1>
+      </div>
+    </div>
+	
+    <!-- content -->
+    <div class="content_body">
+      <div class="content_interior">
+        <div class="left_column">
+          <div class="navigation">
+            <ul class="markermenu">
+              <li>
+                <a href="index.html">Home
+                </a>
+              </li>
+              <li>
+                <a href="/index.html">Services
+                </a>
+              </li>
+              <li>
+                <a href="/index.html">Portfolio
+                </a>
+              </li>
+              <li>
+                <a href="JoinUs.html">Join Us
+                </a>
+              </li>
+              <li class="last-child">
+                <a href="/index.html">Contact Us
+                </a>
+              </li>		
+            </ul> 
+          </div> <!-- navigation -->
+
+          <div class="navigationbtm">
+          </div>
+          <br/>
+          <img src="images/img-2.jpg" alt="sample 2"/>
+        </div> <!-- left_column -->
+		
+        <div class="right_column">
+          <h1>Who we are
+          </h1>
+          <p>
+            We are a group of CST students, past and present, offering our website creation services to non-profit organizations in the lower mainland. We work in teams made up of experts in design, development and project management.
+          </p>
+          <div class="hr">
+          </div>
+          <h2>Join us now! 
+          </h2>
+          <p>
+          To join this dynamic group of web developers, fill in the application below and you will be contacted shortly.
+          </p>
+          <form name="join" method="post" id="join" action="http://webdevfoundations.net/scripts/formdemo.asp">
+            <label for="position">Which position are you applying for?</label>
+            <br>
+            <select size="1" name="position" id="position">
+                <option></option>
+                <option value="Manager">Project Manager</option>
+                <option value="Designer">Graphic Designer</option>
+                <option value="Developer">Web Devloper</option>
+                <option value="Administrator">Database Administor</option>
+            </select>
+            <br>
+            <label for="yes">Passed Comp 1536?</label>
+            <br>
+            <input type="radio" name="passed" id="yes" value="yes">Yes<br>
+            <input type="radio" name="passed" id="no" value="no">No<br>
+            <label for="startDate">Earliest start date?</label><br>
+            <input type="date" name="startDate" id="startDate"><br>
+            <label for="portfolio">Portfolio URL</label><br>
+            <input type="url" id="portfolio" name="portfolio"><br>
+            <label for="resume">Attach resume</label><br>
+            <input type="file" name="resume" id="resume"><br>
+            <label for="first">Name</label><br>
+            <input type="text" id="first" name="first">
+            <input type="text" id="last" name="last"><br>
+            <label for="email">Email Address</label><br>
+            <input type="email" name="email" id="email"><br>
+            <label for="phone">Phone</label><br>
+            <input type="tel" name="phone" id="phone"><br>
+            <label for="info">Any additional information for us</label>
+            <textarea name="info" id="info" cols="40" rows="2"></textarea>
+          </form>
+        </div> <!-- right_column -->
+      </div> <!-- content_interior -->
+      <br clear="all"/>
+    </div> <!-- content_body -->
+	
+	<!-- footer-->
+    <div class="footer">
+      <div class="footer-inner">
+        <div style="text-align:center;">Copyright &copy; 2010 YourName | Designed by: 
+          <a href="#">A. Student
+          </a>
+        </div>
+      </div> <!-- footer-inner -->
+      <br clear="all"/>
+    </div> <!-- footer -->
+  </body>
+</html>

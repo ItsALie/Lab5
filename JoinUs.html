@@ -5,6 +5,7 @@
 		<title>Sample layout rendering
 		</title>
 		<link href="style.css" rel="stylesheet" type="text/css"/>
+        <link href="form.css" rel="stylesheet" type="text/css">
 	</head>
   
   <body>
@@ -66,35 +67,100 @@
           To join this dynamic group of web developers, fill in the application below and you will be contacted shortly.
           </p>
           <form name="join" method="post" id="join" action="http://webdevfoundations.net/scripts/formdemo.asp">
-            <label for="position">Which position are you applying for?</label>
+            <fieldset>
+                <label for="position" class="bold">Which position are you applying for?</label>
+                <label class="required">*</label>
+                <br>
+                <select size="1" name="position" id="position" required>
+                    <option></option>
+                    <option value="Manager">Project Manager</option>
+                    <option value="Designer">Graphic Designer</option>
+                    <option value="Developer">Web Devloper</option>
+                    <option value="Administrator">Database Administor</option>
+                </select>
+            </fieldset>
             <br>
-            <select size="1" name="position" id="position">
-                <option></option>
-                <option value="Manager">Project Manager</option>
-                <option value="Designer">Graphic Designer</option>
-                <option value="Developer">Web Devloper</option>
-                <option value="Administrator">Database Administor</option>
-            </select>
+            <fieldset>
+                <label for="yes" class="bold">Passed Comp 1536?</label>
+                <label class="required">*</label>
+                <br>
+                <input type="radio" name="passed" id="yes" value="yes" required>Yes<br>
+                <input type="radio" name="passed" id="no" value="no">No
+            </fieldset>
             <br>
-            <label for="yes">Passed Comp 1536?</label>
+            <fieldset>
+                <label class="bold">Earliest start date?</label>
+                <label class="required">*</label>
+            </fieldset>
             <br>
-            <input type="radio" name="passed" id="yes" value="yes">Yes<br>
-            <input type="radio" name="passed" id="no" value="no">No<br>
-            <label for="startDate">Earliest start date?</label><br>
-            <input type="date" name="startDate" id="startDate"><br>
-            <label for="portfolio">Portfolio URL</label><br>
-            <input type="url" id="portfolio" name="portfolio"><br>
-            <label for="resume">Attach resume</label><br>
-            <input type="file" name="resume" id="resume"><br>
-            <label for="first">Name</label><br>
-            <input type="text" id="first" name="first">
-            <input type="text" id="last" name="last"><br>
-            <label for="email">Email Address</label><br>
-            <input type="email" name="email" id="email"><br>
-            <label for="phone">Phone</label><br>
-            <input type="tel" name="phone" id="phone"><br>
-            <label for="info">Any additional information for us</label>
-            <textarea name="info" id="info" cols="40" rows="2"></textarea>
+            <fieldset>
+                <input type="date" name="month" id="month" size="2" maxlength="2" required>
+                <br><label for="month">MM</label>
+            </fieldset>\
+            <fieldset>
+                <input type="date" name="day" id="day" size="2" maxlength="2" required>
+                <br><label for="day">DD</label>
+            </fieldset>\
+            <fieldset>
+                <input type="date" name="year" id="year" size="4" maxlength="4" required>
+                <br><label for="year">YYYY</label>
+            </fieldset>
+            <br>
+            <fieldset>
+                <label for="portfolio" class="bold">Portfolio URL</label><br>
+                <input type="url" id="portfolio" name="portfolio" size="40" value="http://">
+            </fieldset>
+            <br>
+            <fieldset>
+                <label for="resume" class="bold">Attach resume</label><br>
+                <input type="file" name="resume" id="resume">
+            </fieldset>
+            <br>
+            <fieldset>
+                <label class="bold">Name</label>
+                <label class="required">*</label>
+            </fieldset>
+            <br>
+            <fieldset>
+                <input type="text" id="first" name="first" size="15" required><br>
+                <label for="first">First</label>
+            </fieldset>
+            <fieldset>
+                <input type="text" id="last" name="last" required><br>
+                <label for="last">Last</label>
+            </fieldset>
+            <br>
+            <fieldset>
+                <label for="email" class="bold">Email Address</label>
+                <label class="required">*</label><br>
+                <input type="email" name="email" id="email" size="45" required>
+            </fieldset>
+            <br>
+            <fieldset>
+                <label class="bold">Phone</label>
+                <label class="required">*</label>
+            </fieldset>
+            <br>
+            <fieldset>
+                <input type="tel" name="phone1" id="phone1" size="3" maxlength="3" required>
+                <br><label for="phone1">(###)</label>
+            </fieldset>-
+            <fieldset>
+                <input type="tel" name="phone2" id="phone2" size="3" maxlength="3" required>
+                <br><label for="phone2">###</label>
+            </fieldset>-
+            <fieldset>
+                <input type="tel" name="phone3" id="phone3" size="4" maxlength="4" required>
+                <br><label for="phone3">####</label>
+            </fieldset>
+            <br>
+            <fieldset>
+                <label for="info" id="title">Any additional information for us</label><br>
+                <textarea name="info" id="info" cols="40" rows="4"></textarea>
+            </fieldset><br>
+            <fieldset>
+                <input type="submit" value="submit">
+            </fieldset>
           </form>
         </div> <!-- right_column -->
       </div> <!-- content_interior -->

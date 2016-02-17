@@ -1,0 +1,13 @@
+fieldset {
+    display: inline;
+    border: none;
+}
+.bold{
+    font-weight: bold;
+}
+#title {
+    color: #63848A;
+}
+.required {
+    color: #f00;
+}

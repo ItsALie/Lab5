@@ -74,7 +74,7 @@
                 <label class="required">*</label>
                 <br>
                 <select size="1" name="position" id="position" required>
-                    <option></option>
+                    <option value="">&nbsp;</option>
                     <option value="Manager">Project Manager</option>
                     <option value="Designer">Graphic Designer</option>
                     <option value="Developer">Web Devloper</option>
@@ -98,22 +98,22 @@
             </fieldset>
             <br>
             <fieldset>
-                <input type="date" name="month" id="month" size="2" maxlength="2" required>
+                <input type="text" name="month" id="month" size="2" maxlength="2" required>
                 <br><label for="month">MM</label>
             </fieldset>\
             <fieldset>
-                <input type="date" name="day" id="day" size="2" maxlength="2" required>
+                <input type="text" name="day" id="day" size="2" maxlength="2" required>
                 <br><label for="day">DD</label>
             </fieldset>\
             <fieldset>
-                <input type="date" name="year" id="year" size="4" maxlength="4" required>
+                <input type="text" name="year" id="year" size="4" maxlength="4" required>
                 <br><label for="year">YYYY</label>
             </fieldset>
             <br>
             <!--Portfolio-->
             <fieldset>
                 <label for="portfolio" class="bold">Portfolio URL</label><br>
-                <input type="url" id="portfolio" name="portfolio" size="40" value="http://">
+                <input type="url" id="portfolio" name="portfolio" size="40" placeholder="http://">
             </fieldset>
             <br>
             <!--Resume-->
@@ -174,18 +174,19 @@
           </form>
         </div> <!-- right_column -->
       </div> <!-- content_interior -->
-      <br clear="all"/>
+      <br>
     </div> <!-- content_body -->
 	
 	<!-- footer-->
     <div class="footer">
       <div class="footer-inner">
-        <div style="text-align:center;">Copyright &copy; 2016 CST Web Creations | Designed by: 
-          <a href="#">Haley Booker and Lancelei Herradura
+        <div style="text-align:center;">Copyright &copy; 2010 YourName | Designed by: 
+          <a href="#">A. Student
           </a>
         </div>
       </div> <!-- footer-inner -->
-      <br clear="all"/>
+      <br>
     </div> <!-- footer -->
+    <!--The document validates according to the specified schema(s) and to additional constraints checked by the validator.-->
   </body>
 </html>

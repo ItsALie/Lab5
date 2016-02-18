@@ -1,3 +1,4 @@
+/* fixes the services table and position of the embedded youtube video */
 table {
     border-collapse: collapse;
     width: 80%;
@@ -20,7 +21,13 @@ tr:nth-child(odd){
     text-align: center;
     width: 100px;
 }
+/* YouTube video positioning */
 iframe{
-    padding-top: 1.5em;
+    padding-top: 0.5em;
     padding-left: 7.5em;
+    border:  none;
+    wmode: opaque;
+}
+h3 {
+    padding-left: 13em;
 }

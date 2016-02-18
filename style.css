@@ -5,6 +5,7 @@ body{
 	font-family: "Lucida Grande", Verdana, sans-serif;
 	font-size: small;
 	color: #38230E;
+	background-color:#F6F1DE;
 }
 
 /* header */
@@ -43,6 +44,7 @@ div .header_interior img {float:left; margin-right:10px;}
 	width:760px;
 	margin-left:auto;
 	margin-right:auto;
+	background-color:#F6F1DE;    
 }
 
 /* column left */
@@ -51,6 +53,7 @@ div .header_interior img {float:left; margin-right:10px;}
 	float:left;
 	margin-top:25px;
 	clear:both;
+	background-color:#F6F1DE;
 }
 
 .navigation{
@@ -112,6 +115,7 @@ div .header_interior img {float:left; margin-right:10px;}
 	margin-bottom:25px;
 	border-left: solid 1px #E0D0B1;
 	padding-left: 10px;
+	background-color:#F6F1DE;
 }
 
 .hr{
@@ -146,6 +150,7 @@ h1 {
 /* footer */
 
 .footer{
+    clear: both;
 	background-color:#EFE6CE;
 	padding-top:25px;
 	padding-bottom:25px;

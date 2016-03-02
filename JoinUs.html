@@ -55,6 +55,21 @@
                 if (testFirstNameValid(id) == 0)
                     alert("You must enter a first name.");
             }
+            function testLastNameValid(id) {
+                return ($(id).value.length);
+            }
+            function warnLastNameInvalid(id) {
+                if (testLastNameValid(id) == 0)
+                    alert("You must enter a last name.");
+            }
+            function testEmailValid(id) {
+                return ($(id).value);
+            }
+            function warnEmailInvalid(id) {
+                var x = /(\.com|\.ca|\.org)$/
+                if (testEmailValid(id).length == 0 || !((testEmailValid(id)).match(x)))
+                    alert("You must enter a valid email.")
+            }
 
 
     </script>
@@ -185,7 +200,7 @@
                 <label for="first">First</label>
             </fieldset>
             <fieldset>
-                <input type="text" id="txtLastName" name="last" required><br>
+                <input type="text" id="txtLastName" name="last" onblur="warnLastNameInvalid('txtLastName')" required><br>
                 <label for="last">Last</label>
             </fieldset>
             <br>
@@ -193,7 +208,7 @@
             <fieldset>
                 <label for="email" class="bold">Email Address</label>
                 <label class="required">*</label><br>
-                <input type="email" name="email" id="txtEmail" size="45" required>
+                <input type="email" name="email" id="txtEmail" size="45" onblur="warnEmailInvalid('txtEmail')" required>
             </fieldset>
             <br>
             <!--Phone Number-->

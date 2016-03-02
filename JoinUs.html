@@ -40,7 +40,14 @@
                 if (!testMonthValid(id) && !testDayValid(id) && !testYearValid(id))
                     alert("Enter appropriate date.");
             }
-
+            function testResumeValid(id) {
+                var str = $(id).value;
+                
+            }
+            function warnResumeInvalid(id) {
+                if (!testResumeValid(id))
+                    alert("You may only send a .doc, .docx, or .pdf document.");
+            }
             function testFirstNameValid(id) {
                 return $(id).value.length;
             }
@@ -164,7 +171,7 @@
             <!--Resume-->
             <fieldset>
                 <label for="resume" class="bold">Attach resume</label><br>
-                <input type="file" name="resume" id="fileResume">
+                <input type="file" name="resume" id="fileResume" onsubmit="warnResumeInvalid('fileResume')">
             </fieldset>
             <br>
             <!--Name-->

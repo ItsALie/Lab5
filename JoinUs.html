@@ -20,8 +20,26 @@
                 if (!testPositionValid(id))
                     alert("You must select a position");
             }
-
-
+            function testPassedCompValid(id) {
+                return ($(id).value === "no")
+            }
+            function warnPassedCompInvalid(id) {
+                if (!testPassedCompValid(id))
+                    alert("You will not be considered if you did not pass this course.");
+            }
+            function testMonthValid(id) {
+                return ($(id).value <= "12" && $(id).value >= "1" || $(id).value === "");
+            }
+            function testDayValid(id) {
+                return ($(id).value <= "1" && $(id).value <= "31" || $(id).value === "");
+            }
+            function testYearValid(id) {
+                return ($(id).value >= "2013" && $(id).value <= "2999" || $(id).value === "");
+            }
+            function warnDateInvalid(id) {
+                if (!testMonthValid(id) && !testDayValid(id) && !testYearValid(id))
+                    alert("Enter appropriate date.");
+            }
 </script>
 	</head>
   
@@ -105,7 +123,7 @@
                 <label class="required">*</label>
                 <br>
                 <input type="radio" name="passed" id="radPassedWeb_0" value="yes" required>Yes<br>
-                <input type="radio" name="passed" id="redPassedWeb_1" value="no">No
+                <input type="radio" name="passed" id="redPassedWeb_1" value="no" onblur="warnPassedCompInvalid('radPassedWeb_0')">No
             </fieldset>
             <br>
             <!--Start Date-->
@@ -123,7 +141,7 @@
                 <br><label for="day">DD</label>
             </fieldset>\
             <fieldset>
-                <input type="text" name="year" id="txtStartDate_2" size="4" maxlength="4" required>
+                <input type="text" name="year" id="txtStartDate_2" size="4" maxlength="4" onblur="warnDateInvalid('txtStartDate_2')" required>
                 <br><label for="year">YYYY</label>
             </fieldset>
             <br>

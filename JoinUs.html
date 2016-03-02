@@ -90,7 +90,7 @@
                 <label for="position" class="bold">Which position are you applying for?</label>
                 <label class="required">*</label>
                 <br>
-                <select size="1" name="position" id="selPosition" onchange="warnPositionInvalid('selPosition')" required>
+                <select size="1" name="position" id="selPosition" onblur="warnPositionInvalid('selPosition')" required>
                     <option value="">&nbsp;</option>
                     <option value="Manager">Project Manager</option>
                     <option value="Designer">Graphic Designer</option>

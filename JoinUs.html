@@ -20,7 +20,13 @@
                 if (!testPositionValid(id))
                     alert("You must select a position");
             }
-
+            function testFirstNameValid(id) {
+                return $(id).value.length;
+            }
+            function warnFirstNameInvalid(id) {
+                if (testFirstNameValid(id) == 0)
+                    alert("You must enter a first name.");
+            }
 
 </script>
 	</head>
@@ -146,7 +152,7 @@
             </fieldset>
             <br>
             <fieldset>
-                <input type="text" id="txtFirstName" name="first" size="15" required><br>
+                <input type="text" id="txtFirstName" name="first" size="15" onblur="warnFirstNameInvalid('txtFirstName')" required><br>
                 <label for="first">First</label>
             </fieldset>
             <fieldset>

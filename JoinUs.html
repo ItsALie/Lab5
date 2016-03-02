@@ -6,6 +6,23 @@
 		</title>
 		<link href="style.css" rel="stylesheet" type="text/css"/>
         <link href="form.css" rel="stylesheet" type="text/css">
+        <script language="JavaScript" type="text/javascript">
+            function $(id) {
+                var element = document.getElementById(id);
+                if (element == null)
+                    alert('Programmer error: ' + id + ' does not exist.');
+                return element;
+            }
+            function testPositionValid(id) {
+                return ($(id).selectedIndex != 0);
+            }
+            function warnPositionInvalid(id) {
+                if (!testPositionValid(id))
+                    alert("You must select a position");
+            }
+
+
+</script>
 	</head>
   
   <body>
@@ -73,7 +90,7 @@
                 <label for="position" class="bold">Which position are you applying for?</label>
                 <label class="required">*</label>
                 <br>
-                <select size="1" name="position" id="position" required>
+                <select size="1" name="position" id="selPosition" onchange="warnPositionInvalid('selPosition')" required>
                     <option value="">&nbsp;</option>
                     <option value="Manager">Project Manager</option>
                     <option value="Designer">Graphic Designer</option>
@@ -87,8 +104,8 @@
                 <label for="yes" class="bold">Passed Comp 1536?</label>
                 <label class="required">*</label>
                 <br>
-                <input type="radio" name="passed" id="yes" value="yes" required>Yes<br>
-                <input type="radio" name="passed" id="no" value="no">No
+                <input type="radio" name="passed" id="radPassedWeb_0" value="yes" required>Yes<br>
+                <input type="radio" name="passed" id="redPassedWeb_1" value="no">No
             </fieldset>
             <br>
             <!--Start Date-->
@@ -98,28 +115,28 @@
             </fieldset>
             <br>
             <fieldset>
-                <input type="text" name="month" id="month" size="2" maxlength="2" required>
+                <input type="text" name="month" id="txtStartDate_0" size="2" maxlength="2" required>
                 <br><label for="month">MM</label>
             </fieldset>\
             <fieldset>
-                <input type="text" name="day" id="day" size="2" maxlength="2" required>
+                <input type="text" name="day" id="txtStartDate_1" size="2" maxlength="2" required>
                 <br><label for="day">DD</label>
             </fieldset>\
             <fieldset>
-                <input type="text" name="year" id="year" size="4" maxlength="4" required>
+                <input type="text" name="year" id="txtStartDate_2" size="4" maxlength="4" required>
                 <br><label for="year">YYYY</label>
             </fieldset>
             <br>
             <!--Portfolio-->
             <fieldset>
                 <label for="portfolio" class="bold">Portfolio URL</label><br>
-                <input type="url" id="portfolio" name="portfolio" size="40" placeholder="http://">
+                <input type="url" id="txtPortfolio" name="portfolio" size="40" placeholder="http://">
             </fieldset>
             <br>
             <!--Resume-->
             <fieldset>
                 <label for="resume" class="bold">Attach resume</label><br>
-                <input type="file" name="resume" id="resume">
+                <input type="file" name="resume" id="fileResume">
             </fieldset>
             <br>
             <!--Name-->
@@ -129,11 +146,11 @@
             </fieldset>
             <br>
             <fieldset>
-                <input type="text" id="first" name="first" size="15" required><br>
+                <input type="text" id="txtFirstName" name="first" size="15" required><br>
                 <label for="first">First</label>
             </fieldset>
             <fieldset>
-                <input type="text" id="last" name="last" required><br>
+                <input type="text" id="txtLastName" name="last" required><br>
                 <label for="last">Last</label>
             </fieldset>
             <br>
@@ -141,7 +158,7 @@
             <fieldset>
                 <label for="email" class="bold">Email Address</label>
                 <label class="required">*</label><br>
-                <input type="email" name="email" id="email" size="45" required>
+                <input type="email" name="email" id="txtEmail" size="45" required>
             </fieldset>
             <br>
             <!--Phone Number-->
@@ -151,22 +168,22 @@
             </fieldset>
             <br>
             <fieldset>
-                <input type="tel" name="phone1" id="phone1" size="3" maxlength="3" required>
+                <input type="tel" name="phone1" id="txtPhone_0" size="3" maxlength="3" required>
                 <br><label for="phone1">(###)</label>
             </fieldset>-
             <fieldset>
-                <input type="tel" name="phone2" id="phone2" size="3" maxlength="3" required>
+                <input type="tel" name="phone2" id="txtPhone_1" size="3" maxlength="3" required>
                 <br><label for="phone2">###</label>
             </fieldset>-
             <fieldset>
-                <input type="tel" name="phone3" id="phone3" size="4" maxlength="4" required>
+                <input type="tel" name="phone3" id="txtPhone_2" size="4" maxlength="4" required>
                 <br><label for="phone3">####</label>
             </fieldset>
             <br>
             <!--Additional Information-->
             <fieldset>
                 <label for="info" id="title">Any additional information for us</label><br>
-                <textarea name="info" id="info" cols="40" rows="4"></textarea>
+                <textarea name="info" id="taComments" cols="40" rows="4"></textarea>
             </fieldset><br>
             <fieldset>
                 <input type="submit" value="submit">

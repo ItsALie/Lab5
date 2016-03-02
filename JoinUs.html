@@ -40,7 +40,6 @@
                 if (!testMonthValid(id) && !testDayValid(id) && !testYearValid(id))
                     alert("Enter appropriate date.");
             }
-
             function testFirstNameValid(id) {
                 return $(id).value.length;
             }
@@ -63,7 +62,19 @@
                 if (testEmailValid(id).length == 0 || !((testEmailValid(id)).match(x)))
                     alert("You must enter a valid email.")
             }
-
+            function testPhone1Valid(id) {
+                return ($(id).value <= 999 && $(id).value >= 100 || $(id).value.length == 0);
+            }
+            function testPhone2Valid(id) {
+                return ($(id).value <= 999 && $(id).value >= 100 || $(id).value.length == 0);
+            }
+            function testPhone3Valid(id) {
+                return ($(id).value <= 9999 && $(id).value >= 1000 || $(id).value.length == 0);
+            }
+            function warnPhoneInvlaid(id1, id2, id3) {
+                if (!testPhone1Valid(id1) || !testPhone2Valid(id2) || !testPhone3Valid(id3))
+                    alert("Enter a correct phone number.");
+            }
 
     </script>
 	</head>
@@ -211,15 +222,15 @@
             </fieldset>
             <br>
             <fieldset>
-                <input type="tel" name="phone1" id="txtPhone_0" size="3" maxlength="3" required>
+                <input type="tel" name="phone1" id="txtPhone_0" size="3" maxlength="3" onblur="warnPhoneInvlaid('txtPhone_0', 'txtPhone_1', 'txtPhone_2')" required>
                 <br><label for="phone1">(###)</label>
             </fieldset>-
             <fieldset>
-                <input type="tel" name="phone2" id="txtPhone_1" size="3" maxlength="3" required>
+                <input type="tel" name="phone2" id="txtPhone_1" size="3" maxlength="3" onblur="warnPhoneInvlaid('txtPhone_0', 'txtPhone_1', 'txtPhone_2')" required>
                 <br><label for="phone2">###</label>
             </fieldset>-
             <fieldset>
-                <input type="tel" name="phone3" id="txtPhone_2" size="4" maxlength="4" required>
+                <input type="tel" name="phone3" id="txtPhone_2" size="4" maxlength="4" onblur="warnPhoneInvlaid('txtPhone_0', 'txtPhone_1', 'txtPhone_2')" required>
                 <br><label for="phone3">####</label>
             </fieldset>
             <br>

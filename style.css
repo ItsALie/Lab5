@@ -169,4 +169,8 @@ h1 {
 	margin-left:20px;
 }
 
-
+div.error {
+    display:  block;
+    border:  1px solid #F9B9B2;
+    background-color:  #FFDFDF;
+}

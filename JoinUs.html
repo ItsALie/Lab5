@@ -88,6 +88,37 @@
                     alert("Enter a correct phone number.");
             }
 
+            /* An error message is displayed to inform user that they need to either fill in the
+            box with data needed or input the correct form. */
+            function formValidate() {
+                if (!testPositionValid('selPosition')) {
+                    $('itmPosition').className = 'error';
+                    $('errPosition').innerHTML = 'You must select a position.';
+                } else {
+                    $('itmPosition').className = ' ';
+                    $('errPosition').innerHTML = ' ';
+                }
+
+                if (!testPassedCompValid('radPassedWeb_0')) {
+                    $('itmPassedComp').className = 'error';
+                    $('errPassedComp').innerHTML = 'You must pass COMP 1536 to be able to apply for a position.';
+                } else {
+                    $('itmPassedComp').className = '';
+                    $('errPassedComp').innerHTML = '';
+                }
+
+                if (!testPhone1Valid('txtStartDate_0')) {
+                    $('itmTxtStartDate_0').className = 'error';
+                    $('errTxtStartDate_0').innerHTML = 'You must enter a valid month.';
+                } else {
+                    $('itmTxtStartDate_0').className = '';
+                    $('errTxtStartDate_0').innerHTML = '';
+                }
+
+            }
+
+
+
     </script>
 	</head>
   
@@ -152,42 +183,60 @@
           <!--Application form-->
           <form name="join" method="post" id="join" action="http://webdevfoundations.net/scripts/formdemo.asp">
               <!--Position-->
-              <fieldset>
-                <label for="position" class="bold">Which position are you applying for?</label>
-                <label class="required">*</label>
-                <br>
-                <select size="1" name="position" id="selPosition" onblur="warnPositionInvalid('selPosition')" required>
-                    <option value="">&nbsp;</option>
-                    <option value="Manager">Project Manager</option>
-                    <option value="Designer">Graphic Designer</option>
-                    <option value="Developer">Web Devloper</option>
-                    <option value="Administrator">Database Administor</option>
-                </select>
-            </fieldset>
+              <div id="itmPosition">
+                <div id="errPosition">
+                </div>
+                    <fieldset>
+                        <label for="position" class="bold">Which position are you applying for?</label>
+                        <label class="required">*</label>
+                        <br>
+                        <select size="1" name="position" id="selPosition" onblur="warnPositionInvalid('selPosition')" required>
+                            <option value="">&nbsp;</option>
+                            <option value="Manager">Project Manager</option>
+                            <option value="Designer">Graphic Designer</option>
+                            <option value="Developer">Web Devloper</option>
+                            <option value="Administrator">Database Administor</option>
+                        </select>
+                </fieldset>
+            </div>
             <br>
             <!--Passed Comp 1536-->
-            <fieldset>
-                <label for="yes" class="bold">Passed Comp 1536?</label>
-                <label class="required">*</label>
-                <br>
-                <input type="radio" name="passed" id="radPassedWeb_0" value="yes" required>Yes<br>
-                <input type="radio" name="passed" id="redPassedWeb_1" value="no" onblur="warnPassedCompInvalid('radPassedWeb_0')">No
-            </fieldset>
+            <div id="itmPassedComp">
+                <div id="errPassedComp">
+                </div>
+                <fieldset>
+                    <label for="yes" class="bold">Passed Comp 1536?</label>
+                    <label class="required">*</label>
+                    <br>
+                    <input type="radio" name="passed" id="radPassedWeb_0" value="yes" required>Yes<br>
+                    <input type="radio" name="passed" id="redPassedWeb_1" value="no" onblur="warnPassedCompInvalid('radPassedWeb_0')">No
+                </fieldset>
+            </div>
             <br>
             <!--Start Date-->
+            
             <fieldset>
                 <label class="bold">Earliest start date?</label>
                 <label class="required">*</label>
             </fieldset>
+            
             <br>
-            <fieldset>
-                <input type="text" name="month" id="txtStartDate_0" size="2" maxlength="2" onblur="warnDateInvalid('txtStartDate_0', 'txtStartDate_1', 'txtStartDate_2')" required>
-                <br><label for="month">MM</label>
+            <div id="itmTxtStartDate_0">
+                <div id="errTxtStartDate_0">
+                </div>
+                <fieldset>
+                    <input type="text" name="month" id="txtStartDate_0" size="2" maxlength="2" onblur="warnDateInvalid('txtStartDate_0', 'txtStartDate_1', 'txtStartDate_2')" required>
+                    <br><label for="month">MM</label>
             </fieldset>\
+            </div>
+            <div id="itmTxtStartDate_1">
+                <div id="errTxtStartDate_1">
+                </div>
             <fieldset>
                 <input type="text" name="day" id="txtStartDate_1" size="2" maxlength="2" onblur="warnDateInvalid('txtStartDate_0', 'txtStartDate_1', 'txtStartDate_2')" required>
                 <br><label for="day">DD</label>
             </fieldset>\
+            </div>
             <fieldset>
                 <input type="text" name="year" id="txtStartDate_2" size="4" maxlength="4" onblur="warnDateInvalid('txtStartDate_0', 'txtStartDate_1', 'txtStartDate_2')" required>
                 <br><label for="year">YYYY</label>

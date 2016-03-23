@@ -17,58 +17,45 @@
             box with data needed or input the correct form. */
             function formValidate(selPosition, radPassedWeb_0, txtStartDate_0, txtStartDate_1, txtStartDate_2, fileResume, txtFirstName, txtLastName, txtEmail, txtPhone_0, txtPhone_1, txtPhone_2) {
                 valid = true;
-                if (!testPositionValid(selPosition)) {
-                    valid = false;
-                }
                 if (!testPositionValid('selPosition')) {
                     $('itmPosition').className = 'error';
                     $('errPosition').innerHTML = 'You must select a position.';
+                    valid = false
                 } else {
                     $('itmPosition').className = ' ';
                     $('errPosition').innerHTML = ' ';
-                }                
-                if (!testPassedCompValid(radPassedWeb_0)) {
-                    valid = false;
                 }
                 if (!testPassedCompValid('radPassedWeb_0')) {
                     $('itmPassedComp').className = 'error';
                     $('errPassedComp').innerHTML = 'You will not be considered if you did not pass this course.';
+                    valid = false;
                 } else {
                     $('itmPassedComp').className = '';
                     $('errPassedComp').innerHTML = '';
                 }
-                if (!testMonthValid(txtStartDate_0)) {
-                    valid = false;
-                }
                 if (!testMonthValid('txtStartDate_0')) {
                     $('itmTxtStartDate_0').className = 'error';
                     $('errTxtStartDate_0').innerHTML = 'You must enter a valid month.';
+                    valid = false;
                 } else {
                     $('itmTxtStartDate_0').className = '';
                     $('errTxtStartDate_0').innerHTML = '';
                 }
-                if (!testDayValid(txtStartDate_1)) {
-                    valid = false;
-                }
                 if (!testDayValid('txtStartDate_1')) {
                     $('itmTxtStartDate_1').className = 'error';
                     $('errTxtStartDate_1').innerHTML = 'You must enter a valid date.';
+                    valid = false;
                 } else {
                     $('itmTxtStartDate_1').className = '';
                     $('errTxtStartDate_1').innerHTML = '';
                 }
-                if (!testYearValid(txtStartDate_2)) {
-                    valid = false;
-                }
                 if (!testYearValid('txtStartDate_2')) {
                     $('itmTxtStartDate_2').className = 'error';
                     $('errTxtStartDate_2').innerHTML = 'You must enter a valid year.';
+                    valid = false;
                 } else {
                     $('itmTxtStartDate_2').className = '';
                     $('errTxtStartDate_2').innerHTML = '';
-                }
-                if (!testResumeValid()){
-                    
                 }
                 if (!testResumeValid(fileResume)) {
                     valid = false;
@@ -254,10 +241,6 @@
             <div id="itmTxtStartDate_0">
                 <div id="errTxtStartDate_0">
                 </div>
-                <fieldset>
-                    <input type="text" name="month" id="txtStartDate_0" size="2" maxlength="2" onblur="warnDateInvalid('txtStartDate_0', 'txtStartDate_1', 'txtStartDate_2')">
-                    <br><label for="month">MM</label>
-                </fieldset>
             <fieldset>
                 <input type="text" name="month" id="txtStartDate_0" size="2" maxlength="2">
                 <br><label for="month">MM</label>

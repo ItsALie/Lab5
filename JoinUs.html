@@ -13,20 +13,30 @@
                     alert('Programmer error: ' + id + ' does not exist.');
                 return element;
             }
+            function formValidate(selPosition, radPassedWeb_0, txtStartDate_0, txtStartDate_1, txtStartDate_2, fileResume, txtFirstName, txtLastName, txtEmail, txtPhone_0, txtPhone_1, txtPhone_2) {
+                valid = true;
+                if (!testPositionValid(selPosition)) {
+                    valid = false;
+                }
+                if (!testPassedCompValid(radPassedWeb_0)) {
+                    valid = false;
+                }
+                if (!testMonthValid(txtStartDate_0)) {
+                    valid = false;
+                }
+                if (!testDayValid(txtStartDate_1)) {
+                    valid = false;
+                }
+                if (!testYearValid(txtStartDate_2)) {
+                    valid = false;
+                }
+                if (!testResumeValid())
+            }
             function testPositionValid(id) {
                 return ($(id).selectedIndex != 0);
             }
-            function warnPositionInvalid(id) {
-                if (!testPositionValid(id))
-                    alert("You must select a position");
-            }
-
             function testPassedCompValid(id) {
                 return ($(id).value === "no")
-            }
-            function warnPassedCompInvalid(id) {
-                if (!testPassedCompValid(id))
-                    alert("You will not be considered if you did not pass this course.");
             }
             function testMonthValid(id) {
                 return ($(id).value <= 12 && $(id).value >= 1 || $(id).value.length == 0);
@@ -37,55 +47,30 @@
             function testYearValid(id) {
                 return ($(id).value >= 2013 && $(id).value <= 2999 || $(id).value.length == 0);
             }
-            function warnDateInvalid(id1, id2, id3) {
-                if (!testMonthValid(id1) || !testDayValid(id2) || !testYearValid(id3))
-                    alert("Enter appropriate date.");
-            }
             function testResumeValid(id) {
                 var str = ($(id).value);
                 var y = /(.doc|.docx|.pdf)$/
                 return (str.match(y));
 
             }
-
-            function warnResumeInvalid(id) {
-                if (!testResumeValid(id))
-                    alert("Submit a valid format (doc, docx, or pdf).");
-            }
             function testFirstNameValid(id) {
                 return $(id).value.length;
-            }
-            function warnFirstNameInvalid(id) {
-                if (testFirstNameValid(id) == 0)
-                    alert("You must enter a first name.");
             }
             function testLastNameValid(id) {
                 return ($(id).value.length);
             }
-            function warnLastNameInvalid(id) {
-                if (testLastNameValid(id) == 0)
-                    alert("You must enter a last name.");
-            }
             function testEmailValid(id) {
-                return ($(id).value);
-            }
-            function warnEmailInvalid(id) {
                 var x = /(\.com|\.ca|\.org)$/
-                if (testEmailValid(id).length == 0 || !((testEmailValid(id)).match(x)))
-                    alert("You must enter a valid email.")
+                return ($(id).value || $(id).value.match(x));
             }
             function testPhone1Valid(id) {
-                return ($(id).value <= 999 && $(id).value >= 100 || $(id).value.length == 0);
+                return ($(id).value <= 999 && $(id).value >= 100);
             }
             function testPhone2Valid(id) {
-                return ($(id).value <= 999 && $(id).value >= 100 || $(id).value.length == 0);
+                return ($(id).value <= 999 && $(id).value >= 100);
             }
             function testPhone3Valid(id) {
-                return ($(id).value <= 9999 && $(id).value >= 1000 || $(id).value.length == 0);
-            }
-            function warnPhoneInvlaid(id1, id2, id3) {
-                if (!testPhone1Valid(id1) || !testPhone2Valid(id2) || !testPhone3Valid(id3))
-                    alert("Enter a correct phone number.");
+                return ($(id).value <= 9999 && $(id).value >= 1000);
             }
 
             /* An error message is displayed to inform user that they need to either fill in the
@@ -117,11 +102,8 @@
 
             }
 
-
-
     </script>
-	</head>
-  
+	</head>  
   <body>
     <!-- header -->
     <div class="header">
@@ -131,7 +113,6 @@
         </h1>
       </div>
     </div>
-	
     <!-- content -->
     <div class="content_body">
       <div class="content_interior">
@@ -159,14 +140,14 @@
                 </a>
               </li>		
             </ul> 
-          </div> <!-- navigation -->
-
+          </div> 
+          <!-- navigation -->
           <div class="navigationbtm">
           </div>
           <br/>
           <img src="images/img-2.jpg" alt="sample 2"/>
-        </div> <!-- left_column -->
-		
+          </div> 
+          <!-- left_column -->		
         <div class="right_column">
           <h1>Who we are
           </h1>
@@ -183,6 +164,7 @@
           <!--Application form-->
           <form name="join" method="post" id="join" action="http://webdevfoundations.net/scripts/formdemo.asp">
               <!--Position-->
+
               <div id="itmPosition">
                 <div id="errPosition">
                 </div>
@@ -212,14 +194,30 @@
                     <input type="radio" name="passed" id="redPassedWeb_1" value="no" onblur="warnPassedCompInvalid('radPassedWeb_0')">No
                 </fieldset>
             </div>
+              <fieldset>
+                <label for="position" class="bold">Which position are you applying for?</label>
+                <br>
+                <select size="1" name="position" id="selPosition">
+                    <option value="">&nbsp;</option>
+                    <option value="Manager">Project Manager</option>
+                    <option value="Designer">Graphic Designer</option>
+                    <option value="Developer">Web Devloper</option>
+                    <option value="Administrator">Database Administor</option>
+                </select>
+            </fieldset>
             <br>
-            <!--Start Date-->
-            
+            <!--Passed Comp 1536-->
+            <fieldset>
+                <label for="yes" class="bold">Passed Comp 1536?</label>
+                <br>
+                <input type="radio" name="passed" id="radPassedWeb_0" value="yes">Yes<br>
+                <input type="radio" name="passed" id="redPassedWeb_1" value="no">No
+            </fieldset>
+            <br>
+            <!--Start Date-->            
             <fieldset>
                 <label class="bold">Earliest start date?</label>
-                <label class="required">*</label>
             </fieldset>
-            
             <br>
             <div id="itmTxtStartDate_0">
                 <div id="errTxtStartDate_0">
@@ -227,18 +225,21 @@
                 <fieldset>
                     <input type="text" name="month" id="txtStartDate_0" size="2" maxlength="2" onblur="warnDateInvalid('txtStartDate_0', 'txtStartDate_1', 'txtStartDate_2')" required>
                     <br><label for="month">MM</label>
+            <fieldset>
+                <input type="text" name="month" id="txtStartDate_0" size="2" maxlength="2">
+                <br><label for="month">MM</label>
             </fieldset>\
             </div>
             <div id="itmTxtStartDate_1">
                 <div id="errTxtStartDate_1">
                 </div>
             <fieldset>
-                <input type="text" name="day" id="txtStartDate_1" size="2" maxlength="2" onblur="warnDateInvalid('txtStartDate_0', 'txtStartDate_1', 'txtStartDate_2')" required>
+                <input type="text" name="day" id="txtStartDate_1" size="2" maxlength="2">
                 <br><label for="day">DD</label>
             </fieldset>\
             </div>
             <fieldset>
-                <input type="text" name="year" id="txtStartDate_2" size="4" maxlength="4" onblur="warnDateInvalid('txtStartDate_0', 'txtStartDate_1', 'txtStartDate_2')" required>
+                <input type="text" name="year" id="txtStartDate_2" size="4" maxlength="4">
                 <br><label for="year">YYYY</label>
             </fieldset>
             <br>
@@ -251,47 +252,44 @@
             <!--Resume-->
             <fieldset>
                 <label for="resume" class="bold">Attach resume</label><br>
-                <input type="file" name="resume" id="fileResume" onchange="warnResumeInvalid('fileResume')">
+                <input type="file" name="resume" id="fileResume">
             </fieldset>
             <br>
             <!--Name-->
             <fieldset>
                 <label class="bold">Name</label>
-                <label class="required">*</label>
             </fieldset>
             <br>
             <fieldset>
-                <input type="text" id="txtFirstName" name="first" size="15" onblur="warnFirstNameInvalid('txtFirstName')" required><br>
+                <input type="text" id="txtFirstName" name="first" size="15"><br>
                 <label for="first">First</label>
             </fieldset>
             <fieldset>
-                <input type="text" id="txtLastName" name="last" onblur="warnLastNameInvalid('txtLastName')" required><br>
+                <input type="text" id="txtLastName" name="last"><br>
                 <label for="last">Last</label>
             </fieldset>
             <br>
             <!--Email Address-->
             <fieldset>
                 <label for="email" class="bold">Email Address</label>
-                <label class="required">*</label><br>
-                <input type="email" name="email" id="txtEmail" size="45" onblur="warnEmailInvalid('txtEmail')" required>
+                <input type="email" name="email" id="txtEmail" size="45">
             </fieldset>
             <br>
             <!--Phone Number-->
             <fieldset>
                 <label class="bold">Phone</label>
-                <label class="required">*</label>
             </fieldset>
             <br>
             <fieldset>
-                <input type="tel" name="phone1" id="txtPhone_0" size="3" maxlength="3" onblur="warnPhoneInvlaid('txtPhone_0', 'txtPhone_1', 'txtPhone_2')" required>
+                <input type="tel" name="phone1" id="txtPhone_0" size="3" maxlength="3">
                 <br><label for="phone1">(###)</label>
             </fieldset>-
             <fieldset>
-                <input type="tel" name="phone2" id="txtPhone_1" size="3" maxlength="3" onblur="warnPhoneInvlaid('txtPhone_0', 'txtPhone_1', 'txtPhone_2')" required>
+                <input type="tel" name="phone2" id="txtPhone_1" size="3" maxlength="3">
                 <br><label for="phone2">###</label>
             </fieldset>-
             <fieldset>
-                <input type="tel" name="phone3" id="txtPhone_2" size="4" maxlength="4" onblur="warnPhoneInvlaid('txtPhone_0', 'txtPhone_1', 'txtPhone_2')" required>
+                <input type="tel" name="phone3" id="txtPhone_2" size="4" maxlength="4">
                 <br><label for="phone3">####</label>
             </fieldset>
             <br>
@@ -301,14 +299,13 @@
                 <textarea name="info" id="taComments" cols="40" rows="4"></textarea>
             </fieldset><br>
             <fieldset>
-                <input type="submit" value="submit">
+                <input type="submit" value="submit" onsubmit="return formValidate('selPosition', 'radPassedWeb_0', 'txtStartDate_0', 'txtStartDate_1', 'txtStartDate_2', 'fileResume', 'txtFirstName', 'txtLastName', 'txtEmail', 'txtPhone_0', 'txtPhone_1', 'txtPhone_2')">
             </fieldset>
           </form>
         </div> <!-- right_column -->
       </div> <!-- content_interior -->
       <br>
     </div> <!-- content_body -->
-	
 	<!-- footer-->
     <div class="footer">
       <div class="footer-inner">

@@ -30,7 +30,28 @@
                 if (!testYearValid(txtStartDate_2)) {
                     valid = false;
                 }
-                if (!testResumeValid())
+                if (!testResumeValid(fileResume)) {
+                    valid = false;
+                }
+                if (!testFirstNameValid(txtFirstName)) {
+                    valid = false;
+                }
+                if (!testLastNameValid(txtLastName)) {
+                    valid = false;
+                }
+                if (!testEmailValid(txtEmail)) {
+                    valid = false;
+                }
+                if (!testPhone1Valid(txtPhone_0)) {
+                    valid = false;
+                }
+                if (!testPhone2Valid(txtPhone_1)) {
+                    valid = false;
+                }
+                if (!testPhone3Valid(txtPhone_2)) {
+                    valid = false;
+                }
+                return valid;
             }
             function testPositionValid(id) {
                 return ($(id).selectedIndex != 0);
@@ -39,13 +60,13 @@
                 return ($(id).value === "no")
             }
             function testMonthValid(id) {
-                return ($(id).value <= 12 && $(id).value >= 1 || $(id).value.length == 0);
+                return ($(id).value <= 12 && $(id).value >= 1);
             }
             function testDayValid(id) {
-                return ($(id).value >= 1 && $(id).value <= 31 || $(id).value.length == 0);
+                return ($(id).value >= 1 && $(id).value <= 31);
             }
             function testYearValid(id) {
-                return ($(id).value >= 2013 && $(id).value <= 2999 || $(id).value.length == 0);
+                return ($(id).value >= 2013 && $(id).value <= 2999);
             }
             function testResumeValid(id) {
                 var str = ($(id).value);

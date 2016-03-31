@@ -87,7 +87,7 @@
                 return ($(id).selectedIndex != 0);
             }
             function testPassedCompValid(id) {
-                return ($(id).value === "no")
+                return ($(id).value == "yes")
             }
             function testMonthValid(id) {
                 return ($(id).value <= 12 && $(id).value >= 1);
@@ -210,28 +210,9 @@
                     <label for="yes" class="bold">Passed Comp 1536?</label>
                     <br>
                     <input type="radio" name="passed" id="radPassedWeb_0" value="yes">Yes<br>
-                    <input type="radio" name="passed" id="redPassedWeb_1" value="no" onblur="warnPassedCompInvalid('radPassedWeb_0')">No
+                    <input type="radio" name="passed" id="redPassedWeb_1" value="no">No
                 </fieldset>
             </div>
-              <fieldset>
-                <label for="position" class="bold">Which position are you applying for?</label>
-                <br>
-                <select size="1" name="position" id="selPosition">
-                    <option value="">&nbsp;</option>
-                    <option value="Manager">Project Manager</option>
-                    <option value="Designer">Graphic Designer</option>
-                    <option value="Developer">Web Devloper</option>
-                    <option value="Administrator">Database Administor</option>
-                </select>
-            </fieldset>
-            <br>
-            <!--Passed Comp 1536-->
-            <fieldset>
-                <label for="yes" class="bold">Passed Comp 1536?</label>
-                <br>
-                <input type="radio" name="passed" id="radPassedWeb_0" value="yes">Yes<br>
-                <input type="radio" name="passed" id="redPassedWeb_1" value="no">No
-            </fieldset>
             <br>
             <!--Start Date-->            
             <fieldset>

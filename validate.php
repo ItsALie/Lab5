@@ -5,6 +5,9 @@ while (!feof($users)) {
     $line = fgets($users);
     $line = str_replace("\n", "", $line);
     $word = explode(" ", $line);
+    for($i = 0; $i < 3; $i++) {
+        $word[$i] = str_replace(" ", "", $word[$i]);
+    } 
     if ($_POST[first] == $word[0] && $_POST[last] == $word[1] && $_POST[email] == $word[2]) {
         $valid = TRUE;
     }

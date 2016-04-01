@@ -170,7 +170,31 @@ h1 {
 }
 
 div.error {
-    display:  block;
-    border:  1px solid #F9B9B2;
+    display: block;
+    border: 1px solid #F9B9B2;
     background-color:  #FFDFDF;
+}
+#itmTxtStartDate_0 {
+    display: inline-block;
+}
+#itmTxtStartDate_1 {
+    display: inline-block;
+}
+#itmTxtStartDate_2 {
+    display: inline-block;
+}
+#itmTxtFirstName {
+    display: inline-block;
+}
+#itmTxtLastName {
+    display: inline-block;
+}
+#itmTxtPhone_0 {
+    display: inline-block;
+}
+#itmTxtPhone_1 {
+    display: inline-block;
+}
+#itmTxtPhone_2 {
+    display: inline-block;
 }

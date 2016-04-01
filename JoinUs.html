@@ -57,26 +57,61 @@
                     $('itmTxtStartDate_2').className = '';
                     $('errTxtStartDate_2').innerHTML = '';
                 }
-                if (!testResumeValid(fileResume)) {
+                if (!testResumeValid('fileResume')) {
+                    $('itmFileResume').className = 'error';
+                    $('errFileResume').innerHTML = 'You must enter a resume.';
                     valid = false;
+                } else {
+                    $('itmFileResume').className = '';
+                    $('errFileResume').innerHTML = '';
                 }
-                if (!testFirstNameValid(txtFirstName)) {
+                if (!testFirstNameValid('txtFirstName')) {
+                    $('itmTxtFirstName').className = 'error';
+                    $('errTxtFirstName').innerHTML = 'You must enter a first name.';
                     valid = false;
+                } else {
+                    $('itmTxtFirstName').className = '';
+                    $('errTxtFirstName').innerHTML = '';
                 }
-                if (!testLastNameValid(txtLastName)) {
+                if (!testLastNameValid('txtLastName')) {
+                    $('itmTxtLastName').className = 'error';
+                    $('errTxtLastName').innerHTML = 'You must enter a first name.';
                     valid = false;
+                } else {
+                    $('itmTxtLastName').className = '';
+                    $('errTxtFirstName').innerHTML = '';
                 }
-                if (!testEmailValid(txtEmail)) {
+                if (!testEmailValid('txtEmail')) {
+                    $('itmTxtEmail').className = 'error';
+                    $('errTxtEmail').innerHTML = 'You must enter a valid email.';
                     valid = false;
+                } else {
+                    $('itmTxtEmail').className = '';
+                    $('errTxtEmail').innerHTML = '';
                 }
                 if (!testPhone1Valid(txtPhone_0)) {
+                    $('itmTxtPhone_0').className = 'error';
+                    $('errTxtPhone_0').innerHTML = 'You must enter a valid phone number';
                     valid = false;
+                } else {
+                    $('itmTxtPhone_0').className = '';
+                    $('errTxtPhone_0').innerHTML = '';
                 }
                 if (!testPhone2Valid(txtPhone_1)) {
+                    $('itmTxtPhone_1').className = 'error';
+                    $('errTxtPhone_1').innerHTML = 'You must enter a valid phone number';
                     valid = false;
+                } else {
+                    $('itmTxtPhone_1').className = '';
+                    $('errTxtPhone_1').innerHTML = '';
                 }
                 if (!testPhone3Valid(txtPhone_2)) {
+                    $('itmTxtPhone_2').className = 'error';
+                    $('errTxtPhone_2').innerHTML = 'You must enter a valid phone numer.';
                     valid = false;
+                } else {
+                    $('itmTxtPhone_2').className = '';
+                    $('errTxtPhone_2').innerHTML = '';
                 }
                 if (valid == false) {
                     event.preventDefault();
@@ -104,23 +139,34 @@
                 return (str.match(y));
             }
             function testFirstNameValid(id) {
-                return $(id).value.length;
+                var str = ($(id).value);
+                var x = /^[a-z ,.'-]+$/i;
+                return (str.match(x));
             }
             function testLastNameValid(id) {
-                return ($(id).value.length);
+                var str = ($(id).value);
+                var x = /^[a-z ,.'-]+$/i;
+                return (str.match(x));
             }
             function testEmailValid(id) {
+                var str = $(id).value;
                 var x = /(\.com|\.ca|\.org)$/
-                return ($(id).value || $(id).value.match(x));
+                return str.match(x);
             }
             function testPhone1Valid(id) {
-                return ($(id).value <= 999 && $(id).value >= 100);
+                var num = $(id).value;
+                var x = [0-9]*$;
+                return ($(id).value <= 999 && $(id).value >= 100 && num.match(x));
             }
             function testPhone2Valid(id) {
-                return ($(id).value <= 999 && $(id).value >= 100);
+                var num = $(id).value;
+                var x = [0-9]*$;
+                return ($(id).value <= 999 && $(id).value >= 100 && num.match(x));
             }
             function testPhone3Valid(id) {
-                return ($(id).value <= 9999 && $(id).value >= 1000);
+                var num = $(id).value;
+                var x = [0-9]*$;
+                return ($(id).value <= 9999 && $(id).value >= 1000 && num.match(x));
             }
 
     </script>
@@ -249,48 +295,77 @@
             </fieldset>
             <br>
             <!--Resume-->
+            <div id="itmFileResume">
+            <div id="errFileResume">
+            </div>
             <fieldset>
                 <label for="resume" class="bold">Attach resume</label><br>
                 <input type="file" name="resume" id="fileResume">
             </fieldset>
+            </div>
             <br>
-            <!--Name-->
+            <!--Name-->  
             <fieldset>
                 <label class="bold">Name</label>
             </fieldset>
             <br>
+            <div id="itmTxtFirstName">
+            <div id="errTxtFirstName">
+            </div>
             <fieldset>
                 <input type="text" id="txtFirstName" name="first" size="15"><br>
                 <label for="first">First</label>
             </fieldset>
+            </div>
+            <div id="itmTxtLastName">
+            <div id="errTxtLastName">
+            </div>    
             <fieldset>
                 <input type="text" id="txtLastName" name="last"><br>
                 <label for="last">Last</label>
             </fieldset>
+            </div>
             <br>
             <!--Email Address-->
+            <div id="itmTxtEmail">
+            <div id="errTxtEmail">
+            </div>
             <fieldset>
                 <label for="email" class="bold">Email Address</label>
                 <input type="email" name="email" id="txtEmail" size="45">
             </fieldset>
+            </div>
             <br>
             <!--Phone Number-->
+            
             <fieldset>
                 <label class="bold">Phone</label>
             </fieldset>
             <br>
+            <div id="itmTxtPhone_0">
+            <div id="errTxtPhone_0">
+            </div>
             <fieldset>
                 <input type="tel" name="phone1" id="txtPhone_0" size="3" maxlength="3">
                 <br><label for="phone1">(###)</label>
             </fieldset>-
+            </div>
+            <div id="itmTxtPhone_1">
+            <div id="errTxtPhone_1">
+            </div>
             <fieldset>
                 <input type="tel" name="phone2" id="txtPhone_1" size="3" maxlength="3">
                 <br><label for="phone2">###</label>
             </fieldset>-
+            </div>
+            <div id="itmTxtPhone_2">
+            <div id="errTxtPhone_2">
+            </div>
             <fieldset>
                 <input type="tel" name="phone3" id="txtPhone_2" size="4" maxlength="4">
                 <br><label for="phone3">####</label>
             </fieldset>
+            </div>
             <br>
             <!--Additional Information-->
             <fieldset>

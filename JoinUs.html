@@ -150,22 +150,22 @@
             }
             function testEmailValid(id) {
                 var str = $(id).value;
-                var x = /(\.com|\.ca|\.org)$/
+                var x = /(\.com|\.ca|\.org)$/;
                 return str.match(x);
             }
             function testPhone1Valid(id) {
                 var num = $(id).value;
-                var x = [0-9]*$;
+                var x = /^\d+$/;
                 return ($(id).value <= 999 && $(id).value >= 100 && num.match(x));
             }
             function testPhone2Valid(id) {
                 var num = $(id).value;
-                var x = [0-9]*$;
+                var x = /^\d+$/;
                 return ($(id).value <= 999 && $(id).value >= 100 && num.match(x));
             }
             function testPhone3Valid(id) {
                 var num = $(id).value;
-                var x = [0-9]*$;
+                var x = /^\d+$/;
                 return ($(id).value <= 9999 && $(id).value >= 1000 && num.match(x));
             }
 
